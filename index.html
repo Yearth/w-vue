@@ -3,16 +3,22 @@
   <p>多层：{{ user.name }}</p>
   v-指令：
   <p v-text="msg"></p>
+  <button v-on:click="handleChange">更新 msg</button>
 </div>
 
 <script type="module">
   import Wvue from "./wvue/wvue.js";
-  var vm = new Wvue({
+  const vm = new Wvue({
     el: "#app",
     data: {
       msg: "Hello Vue!",
       user: {
         name: "Petter"
+      }
+    },
+    methods: {
+      handleChange() {
+        this.msg = "Hello weak vue";
       }
     }
   });
