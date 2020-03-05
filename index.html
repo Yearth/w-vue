@@ -1,0 +1,19 @@
+<div id="app">
+  <p>单层：{{ msg }}</p>
+  <p>多层：{{ user.name }}</p>
+  v-指令：
+  <p v-text="msg"></p>
+</div>
+
+<script type="module">
+  import Wvue from "./wvue/wvue.js";
+  var vm = new Wvue({
+    el: "#app",
+    data: {
+      msg: "Hello Vue!",
+      user: {
+        name: "Petter"
+      }
+    }
+  });
+</script>
