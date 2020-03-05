@@ -11,14 +11,29 @@ class Wvue {
 
     this._initObserve();
     this._initCompile();
+    this._proxyData(this.$data);
+  }
+
+  _initObserve() {
+    new Observer(this.$data);
   }
 
   _initCompile() {
     new Compile(this.$el, this);
   }
 
-  _initObserve() {
-    new Observer(this.$data);
+  _proxyData(data) {
+    for (const key in data) {
+      Object.defineProperty(this, key, {
+        get() {
+          return data[key];
+        },
+        set(val) {
+          data[key] = val;
+          return true;
+        }
+      });
+    }
   }
 }
 export default Wvue;
