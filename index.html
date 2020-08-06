@@ -4,22 +4,23 @@
   v-指令：
   <p v-text="msg"></p>
   <button v-on:click="handleChange">更新 msg</button>
+  <input type="text" v-module="msg" />
 </div>
 
 <script type="module">
-  import Wvue from "./wvue/wvue.js";
+  import Wvue from './wvue/wvue.js'
   const vm = new Wvue({
-    el: "#app",
+    el: '#app',
     data: {
-      msg: "Hello Vue!",
+      msg: 'Hello Vue!',
       user: {
-        name: "Petter"
-      }
+        name: 'Petter',
+      },
     },
     methods: {
       handleChange() {
-        this.msg = "Hello weak vue";
-      }
-    }
-  });
+        this.msg = 'Hello weak vue'
+      },
+    },
+  })
 </script>
